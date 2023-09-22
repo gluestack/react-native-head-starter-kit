@@ -29,11 +29,6 @@ function ActionButtons() {
         sx={{
           ':hover': {
             bg: '$backgroundLight100',
-            _text: {
-              color: '$primary500',
-              textDecorationLine: 'none',
-              fontWeight: '$bold',
-            },
           },
         }}
         size="md"
@@ -41,17 +36,15 @@ function ActionButtons() {
         action="primary"
         isDisabled={false}
         isFocusVisible={false}
-        backgroundColor="$backgroundLight0"
-        onPress={() => navigation.navigate('SignIn')}>
-        <ButtonText
-          sx={{
-            textDecorationLine: 'none',
-            fontWeight: '$bold',
-          }}
-          textDecorationLine="none"
-          color="$primary500">
-          LOGIN
-        </ButtonText>
+        backgroundColor="$backgroundLight0">
+        <Link onPress={() => navigation.navigate('SignIn')}>
+          <ButtonText
+            fontWeight="$bold"
+            textDecorationLine="none"
+            color="$primary500">
+            LOGIN
+          </ButtonText>
+        </Link>
       </Button>
 
       <Button
@@ -60,8 +53,6 @@ function ActionButtons() {
             bg: '$backgroundLight0',
             _text: {
               color: '$primary500',
-              textDecorationLine: 'none',
-              fontWeight: '$bold',
             },
           },
         }}
@@ -71,11 +62,12 @@ function ActionButtons() {
         borderColor="$borderLight0"
         action="primary"
         isDisabled={false}
-        isFocusVisible={false}
-        onPress={() => navigation.navigate('SignUp')}>
-        <ButtonText textDecorationLine="none" color="$textLight50">
-          SIGN UP
-        </ButtonText>
+        isFocusVisible={false}>
+        <Link onPress={() => navigation.navigate('SignUp')}>
+          <ButtonText textDecorationLine="none" color="$textLight50">
+            SIGN UP
+          </ButtonText>
+        </Link>
       </Button>
     </VStack>
   );
@@ -120,7 +112,7 @@ export default function SplashScreen() {
     <GuestLayout>
       <Center w="$full" flex={1}>
         <Box
-          maxWidth="$boxSize"
+          maxWidth="$508"
           w="$full"
           minHeight="$authcard"
           sx={{

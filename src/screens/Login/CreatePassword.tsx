@@ -28,7 +28,6 @@ import {
   Link,
   ScrollView,
   InputSlot,
-  Pressable,
 } from '@gluestack-ui/themed';
 
 import {useForm, Controller} from 'react-hook-form';
@@ -137,10 +136,18 @@ export default function CreatePassword() {
 
     return (
       <HStack space="md" px="$3" my="$4.5" alignItems="center">
-        <Pressable onPress={() => navigation.goBack()}>
-          <Icon as={ArrowLeftIcon} color="$textLight50" />
-        </Pressable>
-        <Text color="$textLight50" fontSize="$lg">
+        <Link onPress={()=>navigation.goBack()}>
+          <Icon
+            size="md"
+            as={ArrowLeftIcon}
+            color="$textLight50"
+            sx={{_dark: {color: '$textDark50'}}}
+          />
+        </Link>
+        <Text
+          color="$textLight50"
+          fontSize="$lg"
+          sx={{_dark: {color: '$textDark50'}}}>
           Create Password
         </Text>
       </HStack>
@@ -152,20 +159,12 @@ export default function CreatePassword() {
       <VStack space="md">
         <Heading
           fontSize="$xl"
-          color="$textLight800"
           sx={{
             '@md': {fontSize: '$2xl'},
-
-            _dark: {color: '$textDark50'},
           }}>
           Create new password
         </Heading>
-        <Text
-          color="$textLight800"
-          fontSize="$sm"
-          sx={{
-            _dark: {color: '$textDark400'},
-          }}>
+        <Text fontSize="$sm">
           Your new password must be different from previous used passwords and
           must be of at least 8 characters.
         </Text>
@@ -178,9 +177,8 @@ export default function CreatePassword() {
       <Center
         flex={1}
         bg="$primary500"
-        px="$4"
         sx={{
-          '@md': {px: '$8'},
+          _dark: {bg: '$primary500'},
         }}>
         <Image
           w="$80"
@@ -213,7 +211,7 @@ export default function CreatePassword() {
         contentContainerStyle={{
           flexGrow: 1,
         }}
-        style={{flex: 1}}
+        flex={1}
         bounces={false}>
         <Box
           bg="$backgroundLight0"
@@ -265,10 +263,7 @@ export default function CreatePassword() {
                         type={showPassword ? 'text' : 'password'}
                       />
                       <InputSlot onPress={handleState} mr="$2">
-                        <InputIcon
-                          as={showConfirmPassword ? EyeIcon : EyeOffIcon}
-                          color="$textDark400"
-                        />
+                        <InputIcon as={showPassword ? EyeIcon : EyeOffIcon} />
                       </InputSlot>
                     </Input>
                   )}

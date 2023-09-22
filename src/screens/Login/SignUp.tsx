@@ -5,7 +5,6 @@ import {
   Image,
   HStack,
   VStack,
-  ScrollView,
   Text,
   Link,
   Divider,
@@ -33,7 +32,6 @@ import {
   ArrowLeftIcon,
   InputField,
   InputSlot,
-  Pressable,
 } from '@gluestack-ui/themed';
 import {Controller, useForm} from 'react-hook-form';
 
@@ -77,11 +75,9 @@ type SignUpSchemaType = z.infer<typeof signUpSchema>;
 function SideContainerWeb() {
   return (
     <Center
+      bg="$primary500"
       flex={1}
       sx={{
-        _light: {
-          bg: '$primary500',
-        },
         _dark: {
           bg: '$primary500',
         },
@@ -101,25 +97,29 @@ function MobileHeader() {
 
   return (
     <VStack px="$3" mt="$4.5" mb="$5" space="md">
-      <HStack space="xs" alignItems="center">
-        <Pressable onPress={() => navigation.goBack()}>
-          <Icon as={ArrowLeftIcon} color="$textLight50" />
-        </Pressable>
-        <Text color="$textLight50" fontSize="$lg">
+      <HStack space="md" alignItems="center">
+        <Link onPress={() => navigation.goBack()}>
+          <Icon
+            as={ArrowLeftIcon}
+            color="$textLight50"
+            sx={{_dark: {color: '$textDark50'}}}
+          />
+        </Link>
+        <Text
+          color="$textLight50"
+          sx={{_dark: {color: '$textDark50'}}}
+          fontSize="$lg">
           Sign Up
         </Text>
       </HStack>
       <VStack space="xs" ml="$1" my="$4">
-        <Heading fontSize="$3xl" color="$textLight50">
+        <Heading color="$textLight50" sx={{_dark: {color: '$textDark50'}}}>
           Welcome
         </Heading>
         <Text
+          color="$primary300"
           fontSize="$md"
-          fontWeight="normal"
           sx={{
-            _light: {
-              color: '$primary300',
-            },
             _dark: {
               color: '$textDark400',
             },
@@ -222,7 +222,7 @@ const SignUpForm = () => {
             )}
           />
           <FormControlError>
-            <FormControlErrorIcon size="sm" as={AlertTriangle} />
+            <FormControlErrorIcon size="md" as={AlertTriangle} />
             <FormControlErrorText>
               {errors?.email?.message}
             </FormControlErrorText>
@@ -258,10 +258,7 @@ const SignUpForm = () => {
                   type={showPassword ? 'text' : 'password'}
                 />
                 <InputSlot onPress={handleState} pr="$3">
-                  <InputIcon
-                    as={showPassword ? EyeIcon : EyeOffIcon}
-                    color="$textDark400"
-                  />
+                  <InputIcon as={showPassword ? EyeIcon : EyeOffIcon} />
                 </InputSlot>
               </Input>
             )}
@@ -305,10 +302,7 @@ const SignUpForm = () => {
                 />
 
                 <InputSlot onPress={handleConfirmPwState} pr="$3">
-                  <InputIcon
-                    as={showConfirmPassword ? EyeIcon : EyeOffIcon}
-                    color="$textDark400"
-                  />
+                  <InputIcon as={showConfirmPassword ? EyeIcon : EyeOffIcon} />
                 </InputSlot>
               </Input>
             )}
@@ -338,7 +332,6 @@ const SignUpForm = () => {
             </CheckboxIndicator>
             <CheckboxLabel
               sx={{
-                _dark: {color: '$warmGray400'},
                 _text: {
                   fontSize: '$sm',
                 },
@@ -375,10 +368,12 @@ const SignUpForm = () => {
           </Checkbox>
         )}
       />
-      <Button mt="$6" onPress={handleSubmit(onSubmit)} px="$2">
-        <ButtonText fontSize="$sm" fontWeight="$medium">
-          SIGN UP
-        </ButtonText>
+      <Button
+        variant="solid"
+        size="lg"
+        mt="$5"
+        onPress={handleSubmit(onSubmit)}>
+        <ButtonText fontSize="$sm"> SIGN UP</ButtonText>
       </Button>
     </>
   );
@@ -388,26 +383,18 @@ function SignUpFormComponent() {
 
   return (
     <>
-      <Box
-        sx={{
-          '@md': {
-            display: 'none',
-          },
-        }}
-        display="flex">
+      <Box sx={{'@md': {display: 'none'}}}>
         <MobileHeader />
       </Box>
       <Box
         flex={1}
+        bg="$backgroundLight0"
         sx={{
           '@md': {
             px: '$8',
             borderTopLeftRadius: '$none',
             borderTopRightRadius: '$none',
             borderBottomRightRadius: '$none',
-          },
-          _light: {
-            bg: '$backgroundLight0',
           },
           _dark: {
             bg: '$backgroundDark800',
@@ -419,72 +406,34 @@ function SignUpFormComponent() {
         borderTopLeftRadius="$2xl"
         borderTopRightRadius="$2xl"
         borderBottomRightRadius="$none">
-        <Text
-          sx={{
-            '@md': {
-              display: 'flex',
-            },
-            _light: {
-              color: '$textLight800',
-            },
-            _dark: {
-              color: '$textDark50',
-            },
-          }}
+        <Heading
           display="none"
-          fontSize="$2xl"
-          fontWeight="bold"
-          mb="$8">
-          Sign up to continue
-        </Text>
-        <SignUpForm />
-        <HStack
-          space="xs"
+          mb="$8"
           sx={{
-            '@md': {
-              mt: '$4',
-            },
-          }}
-          mt="$6"
-          alignItems="center"
-          justifyContent="center">
+            '@md': {display: 'flex', fontSize: '$2xl'},
+          }}>
+          Sign up to continue
+        </Heading>
+        <SignUpForm />
+        <HStack my="$4" space="md" alignItems="center" justifyContent="center">
           <Divider
             w="$2/6"
-            sx={{
-              _light: {
-                bg: '$backgroundLight200',
-              },
-              _dark: {
-                bg: '$backgroundDark700',
-              },
-            }}
+            bg="$backgroundLight200"
+            sx={{_dark: {bg: '$backgroundDark700'}}}
           />
           <Text
-            fontWeight="medium"
-            sx={{
-              _light: {
-                color: '$textlight400',
-              },
-              _dark: {
-                color: '$textdark300',
-              },
-            }}>
+            fontWeight="$medium"
+            color="$textLight400"
+            sx={{_dark: {color: '$textDark300'}}}>
             or
           </Text>
           <Divider
             w="$2/6"
-            sx={{
-              _light: {
-                bg: '$backgroundLight200',
-              },
-              _dark: {
-                bg: '$backgroundDark700',
-              },
-            }}
+            bg="$backgroundLight200"
+            sx={{_dark: {bg: '$backgroundDark700'}}}
           />
         </HStack>
         <HStack
-          space="sm"
           sx={{
             '@md': {
               mt: '$4',
@@ -493,7 +442,8 @@ function SignUpFormComponent() {
           mt="$6"
           mb="$9"
           alignItems="center"
-          justifyContent="center">
+          justifyContent="center"
+          space="lg">
           <Link href="">
             <Button action="secondary" variant="link" onPress={() => {}}>
               <ButtonIcon as={FacebookIcon} size="md" />
@@ -511,31 +461,18 @@ function SignUpFormComponent() {
           justifyContent="center"
           mt="auto">
           <Text
-            fontSize="$sm"
-            color="$backgroundDark500"
-            fontWeight="normal"
+            color="$textLight500"
             sx={{
               _dark: {
                 color: '$textDark400',
               },
-            }}>
+            }}
+            fontSize="$sm">
             Already have an account?
           </Text>
-
-          <Pressable
-            //@ts-ignore
-            onPress={() => navigation.navigate('SignIn')}>
-            <Text
-              sx={{
-                color: '$primary500',
-                textDecorationLine: 'none',
-                ':hover': {color: '$primary600'},
-                fontWeight: '$bold',
-              }}
-              fontSize="$sm">
-              Sign In
-            </Text>
-          </Pressable>
+          <Link onPress={() => navigation.navigate('SignIn')}>
+            <LinkText fontSize="$sm">Sign In</LinkText>
+          </Link>
         </HStack>
       </Box>
     </>

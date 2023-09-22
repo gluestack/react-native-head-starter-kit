@@ -1,5 +1,4 @@
 import {createConfig, config as defaultConfig} from '@gluestack-ui/themed';
-
 const config = createConfig({
   ...defaultConfig.theme,
   tokens: {
@@ -183,38 +182,40 @@ const config = createConfig({
       '4/6': '66.666%',
       '5/6': '83.333%',
       full: '100%',
-      '100/7': '14%',
+
       '25/2': '12%',
+      '100/7': '14%',
+      '6/25': '24%',
+      '3/10': '30%',
+      '9/20': '45%',
       '12/25': '48%',
       '7/10': '70%',
-      '9/20': '45%',
-      '3/10': '30%',
-      '6/25': '24%',
-      layoutPadding: 212,
-      boxSize: 508,
-      imgWidth: 372,
-      containerWidth: 1016,
-      qrBoxInner: 234,
+
+      '60': 60,
+      '74': 74,
+      '70': 70,
+      '90': 90,
       '122': 122,
       '141': 141,
       '170': 170,
-      '275': 275,
-      '544': 544,
       '182': 182,
-      '441': 441,
-      '480': 480,
-      '736': 736,
-      '764': 764,
-      authcard: 544,
       '200': 200,
-      '70': 70,
-      '60': 60,
-      '74': 74,
-      '90': 90,
-      '422': 422,
-      '622': 622,
+      '212': 212, //layoutPadding
+      '234': 234, //qrBoxInner
+      '275': 275,
       '354': 354,
       '384': 384,
+      '372': 372, //imgWidth
+      '422': 422,
+      '441': 441,
+      '480': 480,
+      '508': 508, //boxSize
+      '544': 544,
+      authcard: 544,
+      '622': 622,
+      '736': 736,
+      '764': 764,
+      containerWidth: 1016,
     },
     borderWidths: {
       ...defaultConfig.theme.tokens.borderWidths,
