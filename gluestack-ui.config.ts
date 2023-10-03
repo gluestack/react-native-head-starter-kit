@@ -1,10 +1,12 @@
-import {createConfig, config as defaultConfig} from '@gluestack-ui/themed';
+import {createConfig} from '@gluestack-ui/themed';
+import {config as defaultConfig} from '@gluestack-ui/config';
+
 const config = createConfig({
-  ...defaultConfig.theme,
+  ...defaultConfig,
   tokens: {
-    ...defaultConfig.theme.tokens,
+    ...defaultConfig.tokens,
     colors: {
-      ...defaultConfig.theme.tokens.colors,
+      ...defaultConfig.tokens.colors,
       white: '#FFFFFF',
       black: '#000000',
       primary0: '#F5F3FF',
@@ -134,7 +136,7 @@ const config = createConfig({
       info900: '#441e7d',
     },
     space: {
-      ...defaultConfig.theme.tokens.space,
+      ...defaultConfig.tokens.space,
       px: '1px',
       '0': 0,
       '0.5': 2,
@@ -218,12 +220,12 @@ const config = createConfig({
       containerWidth: 1016,
     },
     borderWidths: {
-      ...defaultConfig.theme.tokens.borderWidths,
+      ...defaultConfig.tokens.borderWidths,
       '20': 20,
       '50': 50,
     },
     opacity: {
-      ...defaultConfig.theme.tokens.opacity,
+      ...defaultConfig.tokens.opacity,
     },
   },
 } as const);
@@ -234,6 +236,11 @@ export {config};
 type ConfigType = typeof config;
 
 // Extend the internal styled config
+type Components = typeof defaultConfig.components;
+// Extend the internal styled config
 declare module '@gluestack-ui/themed' {
-  interface UIConfig extends ConfigType {}
+  // interface UIConfig extends ConfigType {}
+
+  interface ICustomConfig extends ConfigType {}
+  interface ICustomComponents extends Components {}
 }

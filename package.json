@@ -10,8 +10,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@gluestack-style/react": "^0.2.50",
-    "@gluestack-ui/themed": "^0.1.48",
+    "@gluestack-style/react": "^0.2.53-alpha.8",
+    "@gluestack-ui/config": "^0.1.0",
+    "@gluestack-ui/themed": "^0.2.0-alpha.1",
     "@hookform/resolvers": "^3.3.1",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
