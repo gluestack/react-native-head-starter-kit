@@ -1,79 +1,125 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native gluestack-ui Head Starter Kit 🚀
 
-# Getting Started
+A comprehensive starter kit to kick-start your next mobile application using [React Native](https://reactnative.dev/) and [gluestack-ui](https://ui.gluestack.io) - your one-stop solution for faster, smoother, and better mobile and web development.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## 👩‍💻 Built with
 
-## Step 1: Start the Metro Server
+- [gluestack-ui](https://ui.gluestack.io)
+- [React Native](https://reactnative.dev/)
+- [React Navigation](https://reactnavigation.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## 🌟 Features
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- **Seamless Integration**: Get up and running with React Native and gluestack-ui in no time.
+- **Modular Architecture**: Built with scalability in mind to cater to both small and large projects.
+- **Preconfigured Navigation**: Includes preconfigured navigation patterns using [React Navigation](https://reactnavigation.org/).
+- **Theming & Styling**: Customizable themes using gluestack-ui components.
+- **Detailed Documentation**: Comprehensive documentation to guide you through every step.
+- **Extensive form handling**: Extensive implementation of handling forms and validations.
+- **Preconfigured linting rules**: Comprehensive linting rules.
+- **Preconfigured editor configurations**: Widely accepted editor configuration.
+
+## 📷 Screenshots
+
+Please find the screenshots in the `head-starter-kit-screenshots` folder.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup)
+
+### Installation
 
 ```bash
-# using npm
+# Clone the repository
+
+## Using SSH
+git clone git@github.com:gluestack/react-native-head-starter-kit.git
+
+## Using HTTPS
+git clone https://github.com/gluestack/react-native-head-starter-kit.git
+
+# Navigate into the directory
+cd react-native-head-starter-kit
+
+# Install dependencies
+npm install
+
+# Start the React Native development server
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Start your Application
+## 🌈 Applying Fonts in your application
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+You already have the font loaded in your application, now you can apply the font in your application.
 
-### For Android
+Add the font name in the `gluestack.config.js` file in the `fonts` object.
+
+```javascript
+fonts: {
+  heading: "inter",
+  body: "inter",
+  mono: "monospace",
+},
+```
+
+## 📖 Documentation
+
+For a deep dive into the components, structure, and configurations, please refer to our [detailed documentation](https://ui.gluestack.io/docs/getting-started/installation).
+
+## 🧪 Testing
+
+We've set up Jest as the testing framework for this project to ensure the reliability of your codebase. You can run the tests using the following commands:
+
+### Setting Up Jest with React Native
+
+To install `react-native-testing-library` in your project, run the following command:
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+npm install --save-dev @testing-library/react-native @types/jest jest
 ```
 
-### For iOS
+### Writing Test Cases
+
+To write your own test cases, refer to the [React Native Testing Library documentation](https://testing-library.com/docs/react-native-testing-library/intro/) for comprehensive guidance and best practices.
+
+### Running Tests
+
+To run tests, use the following command:
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npm run test
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+We've added an example of a Jest snapshot test case for the `SplashScreen` component. This test case uses Jest's `jest.mock` to mock a dependency and then renders the `SplashScreen` component within a `StyledProvider`. Finally, it asserts that the rendered component matches the previously saved snapshot.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+You can add more test cases as needed for your other components and features. This section serves as a starting point for incorporating testing into your project using Jest.
 
-## Step 3: Modifying your App
+## 🙌 Contributing
 
-Now that you have successfully run the app, let's modify it.
+We welcome contributions! Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+If you have a suggestion that would make this better, please fork the repo, make changes and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Congratulations! :tada:
+## 📄 License
 
-You've successfully run and modified your React Native App. :partying_face:
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
 
-### Now what?
+## ❤️ Acknowledgments
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+- Thanks to the [React Native team](https://reactnative.dev/) for creating an amazing platform.
+- Shoutout to [gluestack-ui contributors](https://gluestack.io/) for their outstanding work.
 
-# Troubleshooting
+```
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```
