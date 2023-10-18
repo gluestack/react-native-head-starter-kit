@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@gluestack-style/react": "latest",
+    "@gluestack-ui/config": "latest",
     "@gluestack-ui/themed": "latest",
     "@hookform/resolvers": "^3.3.1",
     "@react-navigation/native": "^6.1.7",
